@@ -1,19 +1,22 @@
 # Game Of Numbers.Take input from user to guess a pre defined number(18 in this case) within 5 times.
 # else the game is over. Ask the user to try again if they answer wrong and also prompt
 # them of the attempts left.
-print('Welcome to the game of choice where you have 5 attempts to guess the correct answer')
-choice = input('Do you want to play?\t')
-chance = 5
-if  choice in ('yes','YES','Y','y'):
-    while chance >0:
-        num = 18
-        guess = int(input('Enter a number'))
-        if guess == num:
-            print('Congratulation you Entered the right number')
-            break
-        if guess != num:
-            print('Wrong Answer')
-            chance-=1
-            print('You Have %d Attempts Left'%chance)
-            continue
-print('GAME OVER')
+print('The Rules of The Game are as follows,\n1. You have Five lives\n2. Guess a No. Between 1 and 100\n3. If you guess correct you win the game')
+num = 18
+guess = 5
+while guess >0:
+    user_input = int(input('Enter a Number between 1 and 100\t'))
+    if user_input > 18:
+        print('You have guessed wrong, The Number is too high')
+        print('You have',guess-1,'Lives left')
+        guess-=1
+        continue
+    elif user_input < 18:
+        print('You have guessed wrong, The Number is too low')
+        print('You have',guess-1,'Lives left')
+        guess-=1
+        continue
+    else:
+        print('!!!You Won!!!')
+        break
+print('*** GAME OVER ***')
